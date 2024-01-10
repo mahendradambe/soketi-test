@@ -1,0 +1,26 @@
+{
+	"debug": true,
+	"port": 6001,
+	"appManager.": {
+		"cache": {
+			"enabled": false
+		},
+		"driver": "array",
+		"array": {
+			"apps": [
+				{
+					"id": "app-id",
+					"key": "app-key",
+					"secret": "app-secret",
+					"enableClientMessages": true,
+					"webhooks": [
+						{
+							"url": "http://host.docker.internal:3000/process-chat",
+							"event_types": ["client_event"]
+						}
+					]
+				}
+			]
+		}
+	}
+}
