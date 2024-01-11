@@ -18,9 +18,11 @@ services:
         image: postgres
         restart: always
         environment:
-        POSTGRES_PASSWORD: password
-        POSTGRES_USER: root
+            POSTGRES_PASSWORD: password
+            POSTGRES_USER: root
 
 networks:
     soketi:
+        name: soketi
+        external: true
         driver: bridge

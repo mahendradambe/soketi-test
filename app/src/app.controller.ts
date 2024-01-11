@@ -9,7 +9,7 @@ export class AppController {
 		this.client = new Pusher({
 			host: "127.0.0.1",
 			port: "6001",
-			appId: "app-id",
+			appId: "123456",
 			secret: "app-secret",
 			key: "app-key",
 		})
@@ -36,7 +36,7 @@ export class AppController {
 
 	@Post("/socket/authn")
 	public socketAuthn(@Body() body: { socket_id: string }, @Headers() headers) {
-		return this.client.authenticateUser(body.socket_id, { id: "user" })
+		return this.client.authenticateUser(body.socket_id, { id: "1" })
 	}
 
 	@Post("/socket/authz")

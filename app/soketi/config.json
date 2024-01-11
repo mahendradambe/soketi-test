@@ -9,7 +9,7 @@
 		"array": {
 			"apps": [
 				{
-					"id": "app-id",
+					"id": "4857302",
 					"key": "app-key",
 					"secret": "app-secret",
 					"enableClientMessages": true,

@@ -1,11 +1,14 @@
 {
     "folders": [
-		{
-			"path": "app"
-		},
-		{
-			"path": "app-ui"
-		}
-	],
+        {
+            "path": "app"
+        },
+        {
+            "path": "app-ui"
+        },
+        {
+            "path": "python"
+        }
+    ],
     "settings": {}
 }

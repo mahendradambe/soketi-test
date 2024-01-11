@@ -22,31 +22,38 @@ const App = () => {
 				},
 			},
 			channelAuthorization: {
-				endpoint: "http://localhost:3000/socket/authz",
+				endpoint: "http://127.0.0.1:80/api/v1/user_notification/auth",
 				transport: "ajax",
 				headers: {
-					Authorization: "Token",
+					Authorization: "Token 979471257a8180b3f2bad1d9a7f4ff225b95afaa",
 				},
 			},
 		} )
 
 		pusher.signin()
+		console.log( 'signing in...' )
 
+		setTimeout( () => {
+			console.log( 'subscribing...' )
+			const channel = pusher.subscribe( "private-user_1" )
+
+			channel.bind_global( ( ...args: any[] ) => console.log( ...args ) )
+		}, 3000 )
 		pusher.user.signinDonePromise.then( ( user: any ) => {
-			console.log( { user } )
-			const channel = pusher.subscribe( "private-channel" )
-			channel.bind_global( ( ...args: any[] ) => console.log( 'global', args ) )
-			channel.bind( "pusher:subscription_succeeded", () => {
-				const triggered = channel.trigger( "client-event", {
-					your: "data",
-				} )
+			// console.log( { user } )
+			// const channel = pusher.subscribe( "private-user_1" )
+			// channel.bind_global( ( ...args: any[] ) => console.log( 'global', args ) )
+			// channel.bind( "pusher:subscription_succeeded", () => {
+			// 	const triggered = channel.trigger( "client-event", {
+			// 		your: "data",
+			// 	} )
 
-				console.log( triggered )
-			} )
+			// 	console.log( triggered )
+			// } )
 
-			setTimeout( () => {
-				channel.trigger( "client-event", { message: "test" } )
-			}, 3000 )
+			// setTimeout( () => {
+			// 	channel.trigger( "client-event", { message: "test" } )
+			// }, 3000 )
 		} )
 
 
